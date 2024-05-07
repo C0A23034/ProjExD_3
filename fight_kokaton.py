@@ -144,9 +144,7 @@ class Score:
         screen.blit(self.img, [100, 850])
 
     def update(self, screen: pg.Surface):
-            
             screen.blit(self.img, self.count)
-
 
 
 def main():
@@ -192,8 +190,6 @@ def main():
                     count += 1
     
         bombs = [bomb for bomb in bombs if bomb is not None]
-
-
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
         for bomb in bombs:
