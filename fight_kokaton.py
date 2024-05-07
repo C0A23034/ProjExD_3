@@ -137,6 +137,18 @@ class Beam:
             screen.blit(self.img, self.rct)
 
 
+class Score:
+    def __init__(self,screen: pg.Surface):
+        self.fonto = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
+        self.img = self.fonto.render("スコア：", 0, (0, 0, 255))
+        screen.blit(self.img, [100, 850])
+
+    def update(self, screen: pg.Surface):
+            
+            screen.blit(self.img, self.count)
+
+
+
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))    
@@ -150,6 +162,7 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
+                
                 return
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
                 beam = Beam(bird)
@@ -175,6 +188,9 @@ def main():
                     bombs[i] = None
                     bird.change_img(6, screen)
                     pg.display.update()
+
+                    count += 1
+    
         bombs = [bomb for bomb in bombs if bomb is not None]
 
 
