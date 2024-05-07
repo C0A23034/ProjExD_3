@@ -137,6 +137,10 @@ class Beam:
             screen.blit(self.img, self.rct)
 
 
+class Explosion:
+    def __init__(self):
+        exp =[]
+
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))    
