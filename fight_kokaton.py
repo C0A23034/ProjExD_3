@@ -26,6 +26,8 @@ def check_bound(obj_rct: pg.Rect) -> tuple[bool, bool]:
 
 
 class Bird:
+    def __init__(self):
+        self.dire = ()
     """
     ゲームキャラクター（こうかとん）に関するクラス
     """
@@ -35,6 +37,7 @@ class Bird:
         pg.K_LEFT: (-5, 0),
         pg.K_RIGHT: (+5, 0),
     }
+    
     img0 = pg.transform.rotozoom(pg.image.load("fig/3.png"), 0, 2.0)
     img = pg.transform.flip(img0, True, False)  # デフォルトのこうかとん（右向き）
     imgs = {  # 0度から反時計回りに定義
@@ -137,6 +140,9 @@ class Beam:
             screen.blit(self.img, self.rct)
 
 
+
+
+
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))    
@@ -147,12 +153,16 @@ def main():
     beam = None
     clock = pg.time.Clock()
     tmr = 0
+
+    beams = []
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
                 beam = Beam(bird)
+                beams.append
 
         screen.blit(bg_img, [0, 0])
         
