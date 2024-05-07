@@ -26,6 +26,8 @@ def check_bound(obj_rct: pg.Rect) -> tuple[bool, bool]:
 
 
 class Bird:
+    def __init__(self):
+        self.dire = (+5,0)
     """
     ゲームキャラクター（こうかとん）に関するクラス
     """
@@ -35,6 +37,7 @@ class Bird:
         pg.K_LEFT: (-5, 0),
         pg.K_RIGHT: (+5, 0),
     }
+    
     img0 = pg.transform.rotozoom(pg.image.load("fig/3.png"), 0, 2.0)
     img = pg.transform.flip(img0, True, False)  # デフォルトのこうかとん（右向き）
     imgs = {  # 0度から反時計回りに定義
@@ -135,6 +138,9 @@ class Beam:
         if check_bound(self.rct) == (True, True):
             self.rct.move_ip(self.vx, self.vy)
             screen.blit(self.img, self.rct)
+
+
+
 
 
 def main():
